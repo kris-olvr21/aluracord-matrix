@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import appConfig from '../config.json';
 
 function Title(props) {
-    console.log(props);
+    //console.log(props);
     const Tag = props.tag || 'h1';
     return (
         <>
@@ -70,7 +70,7 @@ export default function PaginaInicial() {
               <TextField
                 value={username}
                 onChange={function(event) {
-                  //console.log('usuario digitou', event.target.value
+                  //console.log('usuario digitou', event.target.value)
                   const valor = event.target.value;
                   setUsername(valor);
                 }}
