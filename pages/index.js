@@ -22,7 +22,7 @@ function Title(props) {
 
 export default function PaginaInicial() {
     //const username = 'kris-olvr21';
-    const [username, setUsername] = React.useState('kris-olvr21');
+    const [username, setUsername] = React.useState('');
     const roteamento = useRouter();
 
     return (
@@ -30,9 +30,12 @@ export default function PaginaInicial() {
         <Box
           styleSheet={{
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            backgroundColor: appConfig.theme.colors.primary[500],
-            backgroundImage: 'url(https://virtualbackgrounds.site/wp-content/uploads/2020/08/the-matrix-digital-rain.jpg)',
-            backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
+            backgroundColor: appConfig.theme.colors.primary['900'],
+            backgroundImage: 'url(https://i.pinimg.com/originals/49/72/6e/49726e65f6b35c2e8e366a16c0734fb7.png)',
+            backgroundBlendMode: 'multiply',
+            backgroundRepeat: 'repeat',
+            backgroundSize: '50px',
+            backdropFilter: 'opacity(50%)',           
           }}
         >
           <Box
@@ -55,7 +58,7 @@ export default function PaginaInicial() {
               as="form"
               onSubmit={function(event) {
                 event.preventDefault();
-                roteamento.push('/chat')
+                roteamento.push(`/chat?username=${username}`);
               }}
               styleSheet={{
                 display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
@@ -81,7 +84,7 @@ export default function PaginaInicial() {
                     mainColor: appConfig.theme.colors.neutrals[900],
                     mainColorHighlight: appConfig.theme.colors.primary[500],
                     backgroundColor: appConfig.theme.colors.neutrals[800],
-                  },
+                  }
                 }}
               />
               <Button
@@ -120,7 +123,7 @@ export default function PaginaInicial() {
                   borderRadius: '50%',
                   marginBottom: '16px',
                 }}
-                src={`https://github.com/${username}.png`}
+                src={ username && `https://github.com/${username}.png` || !username && `https://www.whitesourcesoftware.com/wp-content/media/2021/03/pngegg-300x300.png` }
               />
               <Text
                 variant="body4"
